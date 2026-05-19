@@ -8,6 +8,37 @@ const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID;
 
 const userState = {};
 
+// ─── Modo humano — cuando un asesor toma la conversación ──
+const humanMode = {};
+
+// Activar modo humano para un número
+// El bot se pausa y el asesor toma el control
+app.post("/human-mode/on", (req, res) => {
+  const { numero } = req.body;
+  if (!numero) return res.status(400).json({ error: "Falta el campo 'numero'" });
+  humanMode[numero] = true;
+  console.log(`🧑 Modo humano ACTIVADO para ${numero}`);
+  res.json({ success: true, mensaje: `Bot pausado para ${numero}. El asesor tiene el control.` });
+});
+
+// Desactivar modo humano para un número
+// El bot vuelve a responder automáticamente
+app.post("/human-mode/off", (req, res) => {
+  const { numero } = req.body;
+  if (!numero) return res.status(400).json({ error: "Falta el campo 'numero'" });
+  delete humanMode[numero];
+  delete userState[numero];
+  console.log(`🤖 Modo humano DESACTIVADO para ${numero}. Bot activo nuevamente.`);
+  res.json({ success: true, mensaje: `Bot reactivado para ${numero}.` });
+});
+
+// Consultar estado actual de un número
+app.get("/human-mode/:numero", (req, res) => {
+  const { numero } = req.params;
+  const activo = humanMode[numero] === true;
+  res.json({ numero, modo_humano: activo });
+});
+
 async function sendMessage(to, text) {
   await fetch(`https://graph.facebook.com/v23.0/${PHONE_NUMBER_ID}/messages`, {
     method: "POST",
@@ -84,6 +115,13 @@ async function manejarError(from, step, menuActual) {
 // ─── Flujo principal ──────────────────────────────────────
 async function handleMessage(from, text) {
   const num = text.trim();
+
+  // Si el asesor tiene el control, el bot no interfiere
+  if (humanMode[from]) {
+    console.log(`🧑 Mensaje de ${from} ignorado por bot — asesor en control`);
+    return;
+  }
+
   if (!userState[from]) userState[from] = { step: "inicio", intentos: 0 };
   const state = userState[from];
 
