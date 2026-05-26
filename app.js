@@ -56,7 +56,7 @@ async function sendPDF(to, pdfUrl, filename) {
 }
 
 const PDFS = {
-  bolsas_domicilios:           { url: "LINK_PDF_BOLSAS_DOMICILIOS",           nombre: "Bolsas para Domicilios.pdf" },
+  bolsas_domicilios:           { url: "https://drive.google.com/uc?export=download&id=1giy7VUQUW0VI6MCuOQmMjFWv-hLRpX-p",           nombre: "Bolsas para Domicilios.pdf" },
   cajas_comida_rapida:         { url: "LINK_PDF_CAJAS_COMIDA_RAPIDA",         nombre: "Cajas Comidas Rápidas.pdf" },
   cajas_postres_pizza:         { url: "LINK_PDF_CAJAS_POSTRES_PIZZA",         nombre: "Cajas Postres y Pizza.pdf" },
   cajas_sushi_carnes:          { url: "LINK_PDF_CAJAS_SUSHI_CARNES",          nombre: "Cajas Sushi Crepes Carnes.pdf" },
