@@ -58,8 +58,9 @@ async function sendPDF(to, pdfUrl, filename) {
 const PDFS = {
   bolsas_domicilios:           { url: "https://drive.google.com/uc?export=download&id=1giy7VUQUW0VI6MCuOQmMjFWv-hLRpX-p",           nombre: "Bolsas para Domicilios.pdf" },
   cajas_comida_rapida:         { url: "LINK_PDF_CAJAS_COMIDA_RAPIDA",         nombre: "Cajas Comidas Rápidas.pdf" },
-  cajas_postres_pizza:         { url: "LINK_PDF_CAJAS_POSTRES_PIZZA",         nombre: "Cajas Postres y Pizza.pdf" },
-  cajas_sushi_carnes:          { url: "LINK_PDF_CAJAS_SUSHI_CARNES",          nombre: "Cajas Sushi Crepes Carnes.pdf" },
+  cajas_postres:               { url: "https://drive.google.com/file/d/1VqBS04FiqLUV25wa1XlEbJGtYrFYHNaE",                          nombre: "Cajas para Postres.pdf" },
+  cajas_pizza:                 { url: "https://drive.google.com/file/d/1VuC28DrFIAHKm16_hdiuI9qD2in0ACl2",                          nombre: "Cajas para Pizza.pdf" },
+  cajas_sushi_carnes:          { url: "https://drive.google.com/file/d/1xrb46bY5gvZO5KPz1spbrcETFafrXE4D",                          nombre: "Cajas Sushi Crepes Carnes.pdf" },
   cajas_industria_alimentaria: { url: "LINK_PDF_CAJAS_INDUSTRIA_ALIMENTARIA", nombre: "Cajas Industria Alimentaria.pdf" },
   bolsas_ropa_zapatos:         { url: "LINK_PDF_BOLSAS_ROPA_ZAPATOS",         nombre: "Bolsas Ropa y Zapatos.pdf" },
   cajas_ropa_zapatos:          { url: "LINK_PDF_CAJAS_ROPA_ZAPATOS",          nombre: "Cajas Ropa y Zapatos.pdf" },
@@ -249,7 +250,7 @@ async function handleMessage(from, text) {
   if (state.step === "menu_alimentos") {
     if (num === "1") { await sendMessage(from, `Este es nuestro catálogo de BOLSAS PARA DOMICILIOS, si no encuentras una apropiada, *¡NO HAY PROBLEMA!*, lo *diseñamos a tu medida!* 📦`); await sendPDF(from, PDFS.bolsas_domicilios.url, PDFS.bolsas_domicilios.nombre); await sendMessage(from, MSG_ASESOR); userState[from] = { step: "inicio", intentos: 0 }; }
     else if (num === "2") { await sendMessage(from, `Este es nuestro catálogo de CAJAS PARA COMIDAS RÁPIDAS, si no encuentras una apropiada, *¡NO HAY PROBLEMA!*, lo *diseñamos a tu medida!* 📦`); await sendPDF(from, PDFS.cajas_comida_rapida.url, PDFS.cajas_comida_rapida.nombre); await sendMessage(from, MSG_ASESOR); userState[from] = { step: "inicio", intentos: 0 }; }
-    else if (num === "3") { await sendMessage(from, `Este es nuestro catálogo de CAJAS PARA POSTRES Y PIZZA, si no encuentras una apropiada, *¡NO HAY PROBLEMA!*, lo *diseñamos a tu medida!* 📦`); await sendPDF(from, PDFS.cajas_postres_pizza.url, PDFS.cajas_postres_pizza.nombre); await sendMessage(from, MSG_ASESOR); userState[from] = { step: "inicio", intentos: 0 }; }
+    else if (num === "3") { await sendMessage(from, `Este es nuestro catálogo de CAJAS PARA POSTRES Y PIZZA, si no encuentras una apropiada, *¡NO HAY PROBLEMA!*, lo *diseñamos a tu medida!* 📦`); await sendPDF(from, PDFS.cajas_postres.url, PDFS.cajas_postres.nombre); await sendPDF(from, PDFS.cajas_pizza.url, PDFS.cajas_pizza.nombre); await sendMessage(from, MSG_ASESOR); userState[from] = { step: "inicio", intentos: 0 }; }
     else if (num === "4") { await sendMessage(from, `Este es nuestro catálogo de CAJAS PARA SUSHI, CREPES, CARNES Y OTROS, si no encuentras una apropiada, *¡NO HAY PROBLEMA!*, lo *diseñamos a tu medida!* 📦`); await sendPDF(from, PDFS.cajas_sushi_carnes.url, PDFS.cajas_sushi_carnes.nombre); await sendMessage(from, MSG_ASESOR); userState[from] = { step: "inicio", intentos: 0 }; }
     else if (num === "5") { await sendMessage(from, `Este es nuestro catálogo de CAJAS PARA LA INDUSTRIA ALIMENTARIA, si no encuentras una apropiada, *¡NO HAY PROBLEMA!*, lo *diseñamos a tu medida!* 📦`); await sendPDF(from, PDFS.cajas_industria_alimentaria.url, PDFS.cajas_industria_alimentaria.nombre); await sendMessage(from, MSG_ASESOR); userState[from] = { step: "inicio", intentos: 0 }; }
     else if (num === "6") { await sendMessage(from, MENU_CATEGORIAS); userState[from] = { step: "menu_categorias", intentos: 0 }; }
