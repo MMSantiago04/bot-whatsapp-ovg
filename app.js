@@ -57,7 +57,7 @@ async function sendPDF(to, pdfUrl, filename) {
 
 const PDFS = {
   bolsas_domicilios:           { url: "https://drive.google.com/uc?export=download&id=1giy7VUQUW0VI6MCuOQmMjFWv-hLRpX-p",         nombre: "Bolsas para Domicilios.pdf" },
-  cajas_comida_rapida:         { url: "LINK_PDF_CAJAS_COMIDA_RAPIDA",         nombre: "Cajas Comidas Rápidas.pdf" },
+  cajas_comida_rapida:         { url: "https://share.google/SFUMK1FMHZKHB40Qf",         nombre: "Cajas Comidas Rápidas.pdf" },
   cajas_postres:               { url: "https://drive.google.com/uc?export=download&id=1VqBS04FiqLUV25wa1XlEbJGtYrFYHNaE",         nombre: "Cajas para Postres.pdf" },
   cajas_pizza:                 { url: "https://drive.google.com/uc?export=download&id=1VuC28DrFIAHKm16_hdiuI9qD2in0ACl2",         nombre: "Cajas para Pizza.pdf" },
   cajas_sushi_carnes:          { url: "https://drive.google.com/uc?export=download&id=1xrb46bY5gvZO5KPz1spbrcETFafrXE4D",         nombre: "Cajas Sushi Crepes Carnes.pdf" },
@@ -68,11 +68,11 @@ const PDFS = {
   cajas_joyeria:               { url: "https://drive.google.com/uc?export=download&id=14cZIT22wN2k7EGZPq8Pp3bQNuBBLPtC8",         nombre: "Cajas Joyería y Accesorios.pdf" },
   bolsas_boutique:             { url: "https://drive.google.com/uc?export=download&id=1iG0v7-gazg9RgFtMG1vE_c9n4pGfS7UC",         nombre: "Bolsas Boutique y Maquillaje.pdf"},
   cajas_boutique:              { url: "https://drive.google.com/uc?export=download&id=17EVb_dcgWDsCpDwyvpJkOTT4dtar95E7",         nombre: "Cajas Boutique y Maquillaje.pdf" },
-  bolsas_industria:            { url: "LINK_PDF_BOLSAS_INDUSTRIA",            nombre: "Bolsas para la Industria.pdf" },
-  cajas_industria:             { url: "LINK_PDF_CAJAS_INDUSTRIA",             nombre: "Cajas para la Industria.pdf" },
-  bolsas_sin_marca:            { url: "LINK_PDF_BOLSAS_SIN_MARCA",            nombre: "Bolsas sin marca.pdf" },
-  cajas_comida_generica:       { url: "LINK_PDF_CAJAS_COMIDA_GENERICA",       nombre: "Cajas para comida Generica.pdf" },
-  cajas_accesorios_otros:      { url: "LINK_PDF_CAJAS_ACCESORIOS_OTROS",      nombre: "Cajas para accesorios y otros.pdf" },
+  bolsas_industria:            { url: "https://share.google/2Xf6AcWhHtyuATsmk",            nombre: "Bolsas para la Industria.pdf" },
+  cajas_industria:             { url: "https://share.google/2Xf6AcWhHtyuATsmk",             nombre: "Cajas para la Industria.pdf" },
+  bolsas_sin_marca:            { url: "https://share.google/2Xf6AcWhHtyuATsmk",            nombre: "Bolsas sin marca.pdf" },
+  cajas_comida_generica:       { url: "https://share.google/SFUMK1FMHZKHB40Qf",       nombre: "Cajas para comida Generica.pdf" },
+  cajas_accesorios_otros:      { url: "https://share.google/kf4T2fMxQ81lPZFXb",      nombre: "Cajas para accesorios y otros.pdf" },
 };
 
 // ─── Mensajes ─────────────────────────────────────────────
